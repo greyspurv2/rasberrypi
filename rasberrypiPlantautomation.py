@@ -1,23 +1,44 @@
 import datetime
 import time
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 
-def __init__(self, waterc, lightc, pump):
-    self.watercycle = waterc
-    self.pumpcycle = pump
-    self.lightcycle = lightc
+def __init__(self, watercycle, lightcycle, pumpcycle):
+    self.watercycle = watercycle
+    self.pumpcycle = pumpcycle
+    self.lightcycle = lightcycle
 
 
 #water cycle
 while True:
-     datetime.date(now) = True
+start:
+datetime.date(now) = True
 
 
 
-#pump time (seconds) relative to pump intensity
-    pump = t_end = time.time() + 5
-        while True: 
-            time.time() < t_end:
-        dt = datetime.timedelta(365)
-    
+#pump time (seconds) Adjust according to pump intensity and diameter of tubeing
+    if True:
+    pump.pump = time.time() + 5
+    if
+    time.time() < pump:
+
+    pump_Start
+    else
+    pump_Stop
+            dt = datetime.timedelta(365)
+
+
+    #light cycle (12 hour schedule)
+
+sched = BlockingScheduler()
+
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=12)
+def scheduled_job():
+    return
+
+sched.configure(options_from_ini_file)
+sched.start()
+
+
+
 
