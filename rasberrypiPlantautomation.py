@@ -28,7 +28,7 @@ datetime.date(now) = True
             dt = datetime.timedelta(365)
 
 
-    #light cycle (12 hour schedule)
+    #light cycle (12 hour schedule) using apscheduler let's specific sections of the code run at set time intervals, useful for different cycles
 
 sched = BlockingScheduler()
 
