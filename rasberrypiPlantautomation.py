@@ -1,6 +1,7 @@
 import datetime
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
+import Rpi.GPIO as io
 
 
 def __init__(self, watercycle, lightcycle, pumpcycle):
@@ -40,5 +41,12 @@ sched.configure(options_from_ini_file)
 sched.start()
 
 
+io.setmode(ioBCM)
+io.setup(4,io.OUT)
+while True:
+    io.output(4,0)
+    time.sleep(0,30)
+    io.output(4,1)
+    time.sleep(0,30)
 
 
