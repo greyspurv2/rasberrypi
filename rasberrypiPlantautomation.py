@@ -40,6 +40,7 @@ def scheduled_job():
 sched.configure(options_from_ini_file)
 sched.start()
 
+#pin selction for the pump
 
 io.setmode(ioBCM)
 io.setup(4,io.OUT)
@@ -49,4 +50,13 @@ while True:
     io.output(4,1)
     time.sleep(0,30)
 
+    
+#pin selction for the lights
 
+io.setmode(ioBCM)
+io.setup(5,io.OUT)
+while True:
+    io.output(5,0)
+    time.sleep(0,30)
+    io.output(5,1)
+    time.sleep(0,30)
