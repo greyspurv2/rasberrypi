@@ -10,53 +10,51 @@ def __init__(self, watercycle, lightcycle, pumpcycle):
     self.lightcycle = lightcycle
 
 
-#water cycle
+# water cycle
 while True:
-start:
-datetime.date(now) = True
+    start:
+    datetime.date(now) = True
 
-
-
-#pump time (seconds) Adjust according to pump intensity and diameter of tubeing
+    # pump time (seconds) Adjust according to pump intensity and diameter of tubeing
     if True:
-    pump.pump = time.time() + 5
+        pump.pump = time.time() + 5
     if
-    time.time() < pump:
+        time.time() < pump
 
-    pump_Start
-    else
-    pump_Stop
-            dt = datetime.timedelta(365)
+        pump_Start
+        else
+        pump_Stop
+        dt = datetime.timedelta(365)
+
+        # light cycle (12 hour schedule) using apscheduler let's specific sections of the code run at set time intervals, useful for different cycles
+
+        sched = BlockingScheduler()
 
 
-    #light cycle (12 hour schedule) using apscheduler let's specific sections of the code run at set time intervals, useful for different cycles
+        @sched.scheduled_job('cron', day_of_week='mon-sun', hour=12)
+        def scheduled_job():
+            return
 
-sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=12)
-def scheduled_job():
-    return
+        sched.configure(options_from_ini_file)
+        sched.start()
 
-sched.configure(options_from_ini_file)
-sched.start()
+        # pin selction for the pump
 
-#pin selction for the pump
+        io.setmode(ioBCM)
+        io.setup(4, io.OUT)
+        while True:
+            io.output(4, 0)
+            time.sleep(0, 30)
+            io.output(4, 1)
+            time.sleep(0, 30)
 
-io.setmode(ioBCM)
-io.setup(4,io.OUT)
-while True:
-    io.output(4,0)
-    time.sleep(0,30)
-    io.output(4,1)
-    time.sleep(0,30)
+        # pin selction for the lights
 
-    
-#pin selction for the lights
-
-io.setmode(ioBCM)
-io.setup(5,io.OUT)
-while True:
-    io.output(5,0)
-    time.sleep(0,30)
-    io.output(5,1)
-    time.sleep(0,30)
+        io.setmode(ioBCM)
+        io.setup(5, io.OUT)
+        while True:
+            io.output(5, 0)
+            time.sleep(0, 30)
+            io.output(5, 1)
+            time.sleep(0, 30)
