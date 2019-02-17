@@ -1,13 +1,17 @@
+import os
 import datetime
 import time
-from apscheduler.schedulers.blocking import BlockingScheduler
-import Rpi.GPIO as io
+from apscheduler import BlockingScheduler
+import GPIO as io
 
-
-def __init__(self, watercycle, lightcycle, pumpcycle):
-    self.watercycle = watercycle
-    self.pumpcycle = pumpcycle
-    self.lightcycle = lightcycle
+class(cycles):
+    def __init__(self, watercycle, lightcycle, pump, io, apscheduler):
+        self.watercycle = watercycle
+        self.pump = pump
+        self.lightcycle = lightcycle
+        self.io = io
+        assert isinstance(apscheduler, BlockingScheduler)
+        self.apscheduler = apscheduler
 
 
 # water cycle
@@ -57,4 +61,4 @@ while True:
             io.output(5, 0)
             time.sleep(0, 30)
             io.output(5, 1)
-            time.sleep(0, 30)
+time.sleep(0, 30)
