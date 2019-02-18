@@ -4,31 +4,34 @@ import time
 from apscheduler import BlockingScheduler
 import GPIO as io
 
-class(cycles):
+class:
     def __init__(self, watercycle, lightcycle, pump, io, apscheduler):
         self.watercycle = watercycle
         self.pump = pump
         self.lightcycle = lightcycle
         self.io = io
         assert isinstance(apscheduler, BlockingScheduler)
+        assert isinstance(apscheduler, object)
         self.apscheduler = apscheduler
 
 
 # water cycle
 while True:
-    start:
+    pump_start:
     datetime.date(now) = True
 
     # pump time (seconds) Adjust according to pump intensity and diameter of tubeing
     if True:
-        pump.pump = time.time() + 5
-    if
+        pump: pump_start = time.time() + 5
+    if:
         time.time() < pump
+
+        dt = datetime.timedelta(365)
 
         pump_Start
         else
         pump_Stop
-        dt = datetime.timedelta(365)
+
 
         # light cycle (12 hour schedule) using apscheduler let's specific sections of the code run at set time intervals, useful for different cycles
 
