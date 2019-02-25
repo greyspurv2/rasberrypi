@@ -1,36 +1,68 @@
-import os
 import datetime
-import time
 from apscheduler import BlockingScheduler
 import GPIO as io
+import RPi.GPIO as GPIO
+import signal
+import subprocess
+import os
+from time import sleep
 
-class:
-    def __init__(self, watercycle, lightcycle, pump, io, apscheduler):
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(25, GPIO.OUT, initial=GPIO.LOW)
+
+rec_proc = None
+try:
+    while True:
+        if GPIO.input(4):
+            GPIO.output(25, 1)
+            if rec_proc is None:
+                rec_proc = subprocess.Popen("/script/start.sh",
+                           shell=True, preexec_fn=os.setsid)
+        else:
+            GPIO.output(25, 0)
+            if rec_proc is not None:
+                os.killpg(rec_proc.pid, signal.SIGTERM)
+                rec_proc = None
+        sleep(0.2)
+
+finally:
+    GPIO.cleanup()
+
+
+time.sleep(.1)
+
+class(components):
+    def __init__(self, watercycle, lightcycle, pump, io, apscheduler, datetime):
         self.watercycle = watercycle
         self.pump = pump
         self.lightcycle = lightcycle
         self.io = io
         assert isinstance(apscheduler, BlockingScheduler)
-        assert isinstance(apscheduler, object)
         self.apscheduler = apscheduler
+        self.z = datetime
 
+
+pump_start = io
 
 # water cycle
 while True:
     pump_start:
-    datetime.date(now) = True
+    if
+        z = datetime.datetime == datetime.datetime
+    ) = z = True
 
     # pump time (seconds) Adjust according to pump intensity and diameter of tubeing
     if True:
         pump: pump_start = time.time() + 5
     if:
-        time.time() < pump
+        time.time() < pump:
 
-        dt = datetime.timedelta(365)
+        dt = datetime.timedelta(365):
 
-        pump_Start
+        pump function pump_start()
         else
-        pump_Stop
+        pump function pump_Stop()
 
 
         # light cycle (12 hour schedule) using apscheduler let's specific sections of the code run at set time intervals, useful for different cycles
