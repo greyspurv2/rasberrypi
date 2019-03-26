@@ -47,22 +47,20 @@ pump_start = io
 
 # water cycle
 while True:
-    pump_start:
-    if
-        z = datetime.datetime == datetime.datetime
-    ) = z = True
 
-    # pump time (seconds) Adjust according to pump intensity and diameter of tubeing
+    time.localtime(time.time())
+
+    # pump time (seconds) Adjust according to pump intensity and diameter of tubing
     if True:
-        pump: pump_start = time.time() + 5
-    if:
-        time.time() < pump:
+        pump.pump = time.time() + 5
+    then
 
-        dt = datetime.timedelta(365):
+    1 < time.clock()
 
-        pump function pump_start()
-        else
-        pump function pump_Stop()
+    pump_Start
+else:
+        pump_Stop
+        dt = datetime.timedelta(365)
 
 
         # light cycle (12 hour schedule) using apscheduler let's specific sections of the code run at set time intervals, useful for different cycles
